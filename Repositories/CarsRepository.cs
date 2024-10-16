@@ -1,7 +1,3 @@
-
-
-
-
 namespace gregslist_csharp.Repositories;
 
 public class CarsRepository
@@ -10,8 +6,8 @@ public class CarsRepository
   {
     _db = db;
   }
-  private readonly IDbConnection _db;
 
+  private readonly IDbConnection _db;
 
   internal List<Car> GetAllCars()
   {
@@ -28,7 +24,7 @@ public class CarsRepository
     // NOTE The first two type arguments are for the pieces of data coming in on the rows
     // NOTE the third type argument will be the return type from our mapping function
     // NOTE our mapping function will be run on each row returned from the sql statement. It must have parameters set up for the first two type arguments passed to Query
-    // NOTE our mapping function attacehs a creator object to each car
+    // NOTE our mapping function attaches a creator object to each car
     List<Car> cars = _db.Query<Car, Account, Car>(sql, (car, account) =>
     {
       car.Creator = account;

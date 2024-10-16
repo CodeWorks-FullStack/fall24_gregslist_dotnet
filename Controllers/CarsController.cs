@@ -46,6 +46,7 @@ public class CarsController : ControllerBase
   // NOTE Authorize denotes that you must have a valid bearer token to access this endpoint
   [Authorize] // .use(Auth0Provider)
   [HttpPost]
+  // NOTE if there is asynchronous action taken within a method (await), the method must be marked as async. The return type of an asynchronous must have a return type of Task or something similar
   public async Task<ActionResult<Car>> CreateCar([FromBody] Car carData)
   {
     try
